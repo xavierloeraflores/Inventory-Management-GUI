@@ -4,9 +4,10 @@ package com.xavierloeraflores.inventorymanagement;
  * @author xavierloeraflores
  */
 import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
 
 public class Product {
-    private ObservableList<Part> associatedParts;
+    private ObservableList<Part> associatedParts = FXCollections.observableArrayList();
     private int id;
     private String name;
     private double price;
