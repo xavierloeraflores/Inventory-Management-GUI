@@ -1,12 +1,13 @@
 package com.xavierloeraflores.inventorymanagement;
+
+import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
+
 /**
  * A class representing products in
  * which may or may not have associated parts
  * @author xavierloeraflores
  */
-import javafx.collections.ObservableList;
-import javafx.collections.FXCollections;
-
 public class Product {
     /**
      * The [observableArrayList] of parts associated with this product.
@@ -140,7 +141,6 @@ public class Product {
     /**
      * Sets the minimum order quantity of the product.
      * @param min The [int] value min representing the minimum order quantity of this product.
-     * @param max The [int] value max representing the maximum order quantity of this product.
      */
     public void setMin(int min){
         this.min = min;
