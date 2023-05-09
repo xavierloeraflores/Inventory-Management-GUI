@@ -16,25 +16,25 @@ public class Product {
 
     //Getters
     public ObservableList getAllAssociatedParts(){
-        return associatedParts;
+        return this.associatedParts;
     }
     public int getId(){
-        return id;
+        return this.id;
     }
     public String getName(){
-        return name;
+        return this.name;
     }
     public double getPrice(){
-        return price;
+        return this.price;
     }
     public int getStock(){
-        return stock;
+        return this.stock;
     }
     public int getMin(){
-        return min;
+        return this.min;
     }
     public int getMax(){
-        return max;
+        return this.max;
     }
     //Setters
     public void setId(int id){
