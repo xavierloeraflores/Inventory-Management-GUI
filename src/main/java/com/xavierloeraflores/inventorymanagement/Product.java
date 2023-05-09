@@ -67,5 +67,12 @@ public class Product {
         this.max = max;
     }
 
+    // associatedParts mutation functions
+    public void addAssociatedPart(Part part){
+        this.associatedParts.add(part);
+    }
+    public boolean deleteAssociatedPart(Part selectedAssociatedPart){
+        return this.associatedParts.remove(selectedAssociatedPart);
+    }
 
 }
