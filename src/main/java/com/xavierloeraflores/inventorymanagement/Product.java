@@ -14,6 +14,16 @@ public class Product {
     private int min;
     private int max;
 
+    //Constructor
+    public Product(int id, String name, double price, int stock, int min, int max ){
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.stock = stock;
+        this.min = min;
+        this.max = max;
+    }
+
     //Getters
     public ObservableList getAllAssociatedParts(){
         return this.associatedParts;
