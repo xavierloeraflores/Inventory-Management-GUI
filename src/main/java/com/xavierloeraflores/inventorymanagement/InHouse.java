@@ -10,4 +10,8 @@ public class InHouse extends Part{
     public int getMachineId(){
         return this.machineId;
     }
+    //Setters
+    public void setMachineId(int machineId){
+        this.machineId = machineId;
+    }
 }
