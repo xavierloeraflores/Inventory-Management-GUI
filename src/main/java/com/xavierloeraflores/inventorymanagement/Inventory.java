@@ -15,7 +15,20 @@ public class Inventory {
      * The [observableArrayList] of products in the inventory.
      */
     private ObservableList<Product> allProducts = FXCollections.observableArrayList();
-
+    /**
+     * Adds a part to the allParts list  of the inventory.
+     * @param newPart The [Part] object part to be added to the allParts of the inventory.
+     */
+    public void addPart(Part newPart){
+        this.allParts.add(newPart);
+    }
+    /**
+     * Adds a product to the allProducts list  of the inventory.
+     * @param newProduct The [Product] object part to be added to the allProducts of the inventory.
+     */
+    public void newProduct(Product newProduct){
+        this.allProducts.add(newProduct);
+    }
 
 
 
