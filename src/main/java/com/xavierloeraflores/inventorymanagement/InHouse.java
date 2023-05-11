@@ -1,7 +1,7 @@
 package com.xavierloeraflores.inventorymanagement;
 
 /**
- * A class representing in house products in
+ * A class representing in house parts in
  * which inherits from the part class.
  * @author xavierloeraflores
  */
