@@ -31,39 +31,56 @@ public class Inventory {
     }
     public Part lookupPart(int partId){
         for(int i = 0; i<this.allParts.size(); i++){
-            if(allParts.get(i).getId() == partId){
-                return allParts.get(i);
+            if(this.allParts.get(i).getId() == partId){
+                return this.allParts.get(i);
             }
         }
         return null;
     }
     public Product lookupProduct(int productId){
         for(int i = 0 ; i<this.allProducts.size(); i++){
-            if(allProducts.get(i).getId()==productId){
-                return allProducts.get(i);
+            if(this.allProducts.get(i).getId()==productId){
+                return this.allProducts.get(i);
             }
         }
         return null;
     }
     public ObservableList<Part> lookupPart(String partName){
         ObservableList<Part> parts = FXCollections.observableArrayList();
-        for(int i =  0; i<allParts.size(); i++){
-            if(allParts.get(i).getName().contains(partName)){
-                parts.add(allParts.get(i));
+        for(int i =  0; i<this.allParts.size(); i++){
+            if(this.allParts.get(i).getName().contains(partName)){
+                parts.add(this.allParts.get(i));
             }
         }
         return parts;
     }
     public ObservableList<Product> lookupProduct(String productName){
         ObservableList<Product> products = FXCollections.observableArrayList();
-        for(int i = 0; i<allProducts.size();i++){
-            if(allProducts.get(i).getName().contains(productName)){
-                products.add(allProducts.get(i));
+        for(int i = 0; i<this.allProducts.size();i++){
+            if(this.allProducts.get(i).getName().contains(productName)){
+                products.add(this.allProducts.get(i));
             }
         }
         return products;
     }
-
+    public void updatePart(int index, Part newPart){
+        this.allParts.set(index, newPart);
+    }
+    public void updateProduct(int index, Product newProduct){
+        this.allProducts.set(index, newProduct);
+    }
+    public boolean deletePart(Part selectedPart){
+        return this.allParts.remove(selectedPart);
+    }
+    public boolean deleteProduct(Product selectedProduct){
+        return this.allProducts.remove(selectedProduct);
+    }
+    public ObservableList<Part> getAllParts(){
+        return this.allParts;
+    }
+    public ObservableList<Product> getAllProducts(){
+        return this.allProducts;
+    }
 
 }
 /**
@@ -71,8 +88,8 @@ public class Inventory {
  + lookupPart(partId:int):Part
  + lookupProduct(productId:int):Product
  + lookupPart(partName:String):ObservableList<Part>
- + lookupProduct(productName:String):ObservableList<Product> + updatePart(index:int, selectedPart:Part):void
- * TODO:METHODS
+ + lookupProduct(productName:String):ObservableList<Product>
+ + updatePart(index:int, selectedPart:Part):void
  + updateProduct(index:int, newProduct:Product):void
  + deletePart(selectedPart:Part):boolean
  + deleteProduct(selectedProduct:Product):boolean
