@@ -29,18 +29,50 @@ public class Inventory {
     public void newProduct(Product newProduct){
         this.allProducts.add(newProduct);
     }
-
+    public Part lookupPart(int partId){
+        for(int i = 0; i<this.allParts.size(); i++){
+            if(allParts.get(i).getId() == partId){
+                return allParts.get(i);
+            }
+        }
+        return null;
+    }
+    public Product lookupProduct(int productId){
+        for(int i = 0 ; i<this.allProducts.size(); i++){
+            if(allProducts.get(i).getId()==productId){
+                return allProducts.get(i);
+            }
+        }
+        return null;
+    }
+    public ObservableList<Part> lookupPart(String partName){
+        ObservableList<Part> parts = FXCollections.observableArrayList();
+        for(int i =  0; i<allParts.size(); i++){
+            if(allParts.get(i).getName().contains(partName)){
+                parts.add(allParts.get(i));
+            }
+        }
+        return parts;
+    }
+    public ObservableList<Product> lookupProduct(String productName){
+        ObservableList<Product> products = FXCollections.observableArrayList();
+        for(int i = 0; i<allProducts.size();i++){
+            if(allProducts.get(i).getName().contains(productName)){
+                products.add(allProducts.get(i));
+            }
+        }
+        return products;
+    }
 
 
 }
 /**
- * TODO
- + addPart(newPart:Part):void
- + addProduct(newProduct:Product):void
+ * TODO:DOCS
  + lookupPart(partId:int):Part
  + lookupProduct(productId:int):Product
  + lookupPart(partName:String):ObservableList<Part>
  + lookupProduct(productName:String):ObservableList<Product> + updatePart(index:int, selectedPart:Part):void
+ * TODO:METHODS
  + updateProduct(index:int, newProduct:Product):void
  + deletePart(selectedPart:Part):boolean
  + deleteProduct(selectedProduct:Product):boolean
