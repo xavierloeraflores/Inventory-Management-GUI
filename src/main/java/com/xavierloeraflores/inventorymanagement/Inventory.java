@@ -30,7 +30,7 @@ public class Inventory {
         this.allProducts.add(newProduct);
     }
     /**
-     *  Looks up a part given a partID and returns the result.
+     * Looks up a part given a partID and returns the result.
      * @param partId [int] partId value to be looked up
      * @return Part matching the given partId value or null if not found
      */
@@ -43,7 +43,7 @@ public class Inventory {
         return null;
     }
     /**
-     *  Looks up a product given a productId and returns the result.
+     * Looks up a product given a productId and returns the result.
      * @param productId [int] productId value to be looked up
      * @return Product matching the given productId value or null if not found
      */
@@ -56,7 +56,7 @@ public class Inventory {
         return null;
     }
     /**
-     *  Looks up parts given a partName and returns the result
+     * Looks up parts given a partName and returns the result
      * @param partName [string] value partName to be looked up
      * @return ObservableList<Part> matching the given partName value or null if not found
      */
@@ -70,7 +70,7 @@ public class Inventory {
         return parts;
     }
     /**
-     *  Looks up products given a productName and returns the result
+     * Looks up products given a productName and returns the result
      * @param productName [string] value productName to be looked up
      * @return ObservableList<Product> matching the given productName value or null if not found
      */
@@ -84,61 +84,49 @@ public class Inventory {
         return products;
     }
     /**
-     *
-     * @param
-     * @return
+     * Takes an index value pointing to a part in the inventory and updates it with the given newPart
+     * @param index [int] index value pointing to the index of the part to be edited part in inventory
+     * @param newPart [Part] newPart value which will replace the old part
      */
     public void updatePart(int index, Part newPart){
         this.allParts.set(index, newPart);
     }
     /**
-     *
-     * @param
-     * @return
+     * Takes an index value pointing to a product in the inventory and updates it with the given newProduct
+     * @param index [int] index value pointing to the index of the product to be edited part in inventory
+     * @param newProduct [Product] newProduct value which will replace the old product
      */
     public void updateProduct(int index, Product newProduct){
         this.allProducts.set(index, newProduct);
     }
     /**
-     *
-     * @param
-     * @return
+     * Takes an index value pointing to a part in the inventory to delete it and return true or false if successful
+     * @param selectedPart [Part] newPart value which will be deleted
+     * @return true if the part was successfully delete or false if no deletion was made
      */
     public boolean deletePart(Part selectedPart){
         return this.allParts.remove(selectedPart);
     }
     /**
-     *
-     * @param
-     * @return
+     * Takes an index value pointing to a product in the inventory to delete it and return true or false if successful
+     * @param selectedProduct [Product] selectedProduct value which will be deleted
+     * @return true if the product was successfully delete or false if no deletion was made
      */
     public boolean deleteProduct(Product selectedProduct){
         return this.allProducts.remove(selectedProduct);
     }
     /**
-     *
-     * @param
-     * @return
+     * Returns the full list of parts in the inventory
+     * @return ObservableList<Part> list of parts in the inventory
      */
     public ObservableList<Part> getAllParts(){
         return this.allParts;
     }
     /**
-     *
-     * @param
-     * @return
+     * Returns the full list of product in the inventory
+     * @return ObservableList<Product> list of product in the inventory
      */
     public ObservableList<Product> getAllProducts(){
         return this.allProducts;
     }
-
 }
-/**
- * TODO:DOCS
- + updatePart(index:int, selectedPart:Part):void
- + updateProduct(index:int, newProduct:Product):void
- + deletePart(selectedPart:Part):boolean
- + deleteProduct(selectedProduct:Product):boolean
- + getAllParts():ObservableList<Part>
- + getAllProducts():ObservableList<Product>
- */
