@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"com.xavierloeraflores.inventorymanagement","l":"com.xavierloeraflores.inventorymanagement"}];updateSearchResults();
