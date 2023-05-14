@@ -63,7 +63,7 @@ public class Product {
      * Returns the associated parts list of the product.
      * @return [ObservableList] value associated parts of this product.
      */
-    public ObservableList getAllAssociatedParts(){
+    public ObservableList<Part> getAllAssociatedParts(){
         return this.associatedParts;
     }
     /**
