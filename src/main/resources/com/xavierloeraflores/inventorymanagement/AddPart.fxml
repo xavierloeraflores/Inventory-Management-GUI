@@ -42,15 +42,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xavierloeraflores.inventorymanagement.AddPartController">
   <children>
     <MenuBar VBox.vgrow="NEVER" />
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
             <Pane layoutX="70.0" layoutY="46.0" prefHeight="70.0" prefWidth="500.0">
                <children>
-                  <RadioButton fx:id="radioInHouse" layoutX="185.0" layoutY="26.0" mnemonicParsing="false" text="In-House" />
-                  <RadioButton fx:id="radioOutsourced" layoutX="357.0" layoutY="29.0" mnemonicParsing="false" text="Outsourced" />
+                  <RadioButton fx:id="radioInHouse" onAction="#setRadioInHouse" layoutX="185.0" layoutY="26.0" mnemonicParsing="false" text="In-House" />
+                  <RadioButton fx:id="radioOutsourced" onAction="#setRadioOutsourced" layoutX="357.0" layoutY="29.0" mnemonicParsing="false" text="Outsourced" />
                   <Label layoutX="25.0" layoutY="26.0" text="Add Part">
                      <font>
                         <Font name="System Bold" size="18.0" />
@@ -65,21 +65,21 @@
                   <Label layoutX="14.0" layoutY="91.0" text="Inv" />
                   <Label layoutX="14.0" layoutY="127.0" text="Price/Cost" />
                   <Label layoutX="14.0" layoutY="157.0" text="Max" />
-                  <Label layoutX="14.0" layoutY="187.0" text="Machine ID" />
+                  <Label fx:id="labelSpecial" layoutX="14.0" layoutY="187.0" text="Machine ID" />
                   <TextField fx:id="fieldId" disable="true" editable="false" layoutX="82.0" layoutY="24.0" text="Auto Gen-Disabled" />
                   <TextField fx:id="fieldName" layoutX="82.0" layoutY="56.0" />
                   <TextField fx:id="fieldStock" layoutX="82.0" layoutY="89.0" />
                   <TextField fx:id="fieldPrice" layoutX="82.0" layoutY="125.0" />
                   <TextField fx:id="fieldMax" layoutX="82.0" layoutY="155.0" />
-                  <TextField fx:id="fieldMachineId" layoutX="82.0" layoutY="185.0" />
+                  <TextField fx:id="fieldSpecial" layoutX="82.0" layoutY="185.0" />
                   <TextField fx:id="fieldMin" layoutX="326.0" layoutY="155.0" />
                   <Label layoutX="279.0" layoutY="159.0" text="Min" />
                </children>
             </Pane>
             <Pane layoutX="321.0" layoutY="336.0" prefHeight="52.0" prefWidth="141.0">
                <children>
-                  <Button fx:id="buttonSave" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" text="Save" />
-                  <Button fx:id="buttonCancel" layoutX="73.0" layoutY="13.0" mnemonicParsing="false" text="Cancel" />
+                  <Button fx:id="buttonSave" onAction="#handleSave" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" text="Save" />
+                  <Button fx:id="buttonCancel" onAction="#handleCancel" layoutX="73.0" layoutY="13.0" mnemonicParsing="false" text="Cancel" />
                </children>
             </Pane>
       </children>

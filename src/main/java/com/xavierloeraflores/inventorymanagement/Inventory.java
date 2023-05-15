@@ -6,38 +6,39 @@ import javafx.collections.FXCollections;
  * which contains all parts and products.
  * @author xavierloeraflores
  */
+@SuppressWarnings("serial")
 public class Inventory {
     /**
      * The [observableArrayList] of parts in the inventory.
      */
-    private ObservableList<Part> allParts = FXCollections.observableArrayList();
+    private static final ObservableList<Part> allParts = FXCollections.observableArrayList();
     /**
      * The [observableArrayList] of products in the inventory.
      */
-    private ObservableList<Product> allProducts = FXCollections.observableArrayList();
+    private static final ObservableList<Product> allProducts = FXCollections.observableArrayList();
     /**
      * Adds a part to the allParts list  of the inventory.
      * @param newPart The [Part] object part to be added to the allParts of the inventory.
      */
-    public void addPart(Part newPart){
-        this.allParts.add(newPart);
+    public static void addPart(Part newPart){
+        allParts.add(newPart);
     }
     /**
      * Adds a product to the allProducts list  of the inventory.
      * @param newProduct The [Product] object part to be added to the allProducts of the inventory.
      */
-    public void newProduct(Product newProduct){
-        this.allProducts.add(newProduct);
+    public static void addProduct(Product newProduct){
+        allProducts.add(newProduct);
     }
     /**
      * Looks up a part given a partID and returns the result.
      * @param partId [int] partId value to be looked up
      * @return Part matching the given partId value or null if not found
      */
-    public Part lookupPart(int partId){
-        for(int i = 0; i<this.allParts.size(); i++){
-            if(this.allParts.get(i).getId() == partId){
-                return this.allParts.get(i);
+    public static Part lookupPart(int partId){
+        for(int i = 0; i<allParts.size(); i++){
+            if(allParts.get(i).getId() == partId){
+                return allParts.get(i);
             }
         }
         return null;
@@ -47,10 +48,10 @@ public class Inventory {
      * @param productId [int] productId value to be looked up
      * @return Product matching the given productId value or null if not found
      */
-    public Product lookupProduct(int productId){
-        for(int i = 0 ; i<this.allProducts.size(); i++){
-            if(this.allProducts.get(i).getId()==productId){
-                return this.allProducts.get(i);
+    public static Product lookupProduct(int productId){
+        for(int i = 0 ; i<allProducts.size(); i++){
+            if(allProducts.get(i).getId()==productId){
+                return allProducts.get(i);
             }
         }
         return null;
@@ -60,11 +61,11 @@ public class Inventory {
      * @param partName [string] value partName to be looked up
      * @return ObservableList<Part> matching the given partName value or null if not found
      */
-    public ObservableList<Part> lookupPart(String partName){
+    public static ObservableList<Part> lookupPart(String partName){
         ObservableList<Part> parts = FXCollections.observableArrayList();
-        for(int i =  0; i<this.allParts.size(); i++){
-            if(this.allParts.get(i).getName().contains(partName)){
-                parts.add(this.allParts.get(i));
+        for(int i =  0; i<allParts.size(); i++){
+            if(allParts.get(i).getName().contains(partName)){
+                parts.add(allParts.get(i));
             }
         }
         return parts;
@@ -74,11 +75,11 @@ public class Inventory {
      * @param productName [string] value productName to be looked up
      * @return ObservableList<Product> matching the given productName value or null if not found
      */
-    public ObservableList<Product> lookupProduct(String productName){
+    public static ObservableList<Product> lookupProduct(String productName){
         ObservableList<Product> products = FXCollections.observableArrayList();
-        for(int i = 0; i<this.allProducts.size();i++){
-            if(this.allProducts.get(i).getName().contains(productName)){
-                products.add(this.allProducts.get(i));
+        for(int i = 0; i<allProducts.size();i++){
+            if(allProducts.get(i).getName().contains(productName)){
+                products.add(allProducts.get(i));
             }
         }
         return products;
@@ -88,45 +89,45 @@ public class Inventory {
      * @param index [int] index value pointing to the index of the part to be edited part in inventory
      * @param newPart [Part] newPart value which will replace the old part
      */
-    public void updatePart(int index, Part newPart){
-        this.allParts.set(index, newPart);
+    public static void updatePart(int index, Part newPart){
+        allParts.set(index, newPart);
     }
     /**
      * Takes an index value pointing to a product in the inventory and updates it with the given newProduct
      * @param index [int] index value pointing to the index of the product to be edited part in inventory
      * @param newProduct [Product] newProduct value which will replace the old product
      */
-    public void updateProduct(int index, Product newProduct){
-        this.allProducts.set(index, newProduct);
+    public static void updateProduct(int index, Product newProduct){
+        allProducts.set(index, newProduct);
     }
     /**
      * Takes an index value pointing to a part in the inventory to delete it and return true or false if successful
      * @param selectedPart [Part] newPart value which will be deleted
      * @return true if the part was successfully delete or false if no deletion was made
      */
-    public boolean deletePart(Part selectedPart){
-        return this.allParts.remove(selectedPart);
+    public static boolean deletePart(Part selectedPart){
+        return allParts.remove(selectedPart);
     }
     /**
      * Takes an index value pointing to a product in the inventory to delete it and return true or false if successful
      * @param selectedProduct [Product] selectedProduct value which will be deleted
      * @return true if the product was successfully delete or false if no deletion was made
      */
-    public boolean deleteProduct(Product selectedProduct){
-        return this.allProducts.remove(selectedProduct);
+    public static boolean deleteProduct(Product selectedProduct){
+        return allProducts.remove(selectedProduct);
     }
     /**
      * Returns the full list of parts in the inventory
      * @return ObservableList<Part> list of parts in the inventory
      */
-    public ObservableList<Part> getAllParts(){
-        return this.allParts;
+    public static ObservableList<Part> getAllParts(){
+        return allParts;
     }
     /**
      * Returns the full list of product in the inventory
      * @return ObservableList<Product> list of product in the inventory
      */
-    public ObservableList<Product> getAllProducts(){
-        return this.allProducts;
+    public static ObservableList<Product> getAllProducts(){
+        return allProducts;
     }
 }
