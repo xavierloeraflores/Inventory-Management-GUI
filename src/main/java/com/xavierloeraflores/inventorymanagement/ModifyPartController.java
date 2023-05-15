@@ -17,12 +17,15 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
- * Controller class for the AddPart.fmxl form.
+ * Controller class for the ModifyPart.fmxl form.
  * Implements Initializable
  * @author xavierloeraflores
  */
-public class AddPartController implements Initializable {
-
+public class ModifyPartController implements Initializable {
+    /**
+     * The [selectedPart] which will be modified by the user.
+     */
+    private Part selectedPart;
     /**
      * The [radioInHouse] which allows the user to select an In House Part.
      */
@@ -135,7 +138,7 @@ public class AddPartController implements Initializable {
     private boolean validate(String name,  String priceString, String stockString, String minString, String maxString, String special, boolean isOutsourced ){
         boolean validated = true;
         errorMessage = "";
-        
+
         if(name == ""){
             System.out.println("Bruh");
             validated = false;
@@ -215,7 +218,7 @@ public class AddPartController implements Initializable {
         }
         if (stock < min){
             validated = false;
-            errorMessage=errorMessage.concat("\nStock must be within range of min & max \n Stock can not be less than min.");
+            errorMessage=errorMessage.concat("\nStock must be within range of min & max \nStock can not be less than min.");
         }
         if (stock > max){
             validated = false;
@@ -239,8 +242,8 @@ public class AddPartController implements Initializable {
             errorMessage=errorMessage.concat("\n Name field must not be empty.");
         }
         if (specialInt<0){
-        validated = false;
-        errorMessage=errorMessage.concat("\n In house part must have an ID value number");
+            validated = false;
+            errorMessage=errorMessage.concat("\n In house part must have an ID value number");
         }
 
 
@@ -261,7 +264,6 @@ public class AddPartController implements Initializable {
         String partMin = fieldMin.getText();
         String partMax = fieldMax.getText();
         String partSpecial = fieldSpecial.getText();
-        Part newPart;
 
         try {
             if(validate(partName, partPrice, partStock, partMin,partMax,partSpecial,isOutsourced)){
@@ -270,6 +272,7 @@ public class AddPartController implements Initializable {
                 double price = Double.parseDouble(partPrice);
                 int min = Integer.parseInt(partMin);
                 int max = Integer.parseInt(partMax);
+                Part newPart;
 
                 if (!isOutsourced) {
                     int machineId = Integer.parseInt(partSpecial);
@@ -278,8 +281,10 @@ public class AddPartController implements Initializable {
                     String companyName = partSpecial;
                     newPart = new Outsourced(partId, name, price, stock, min, max, companyName);
                 }
-                Inventory.addPart(newPart);
+                int index = Inventory.getAllParts().indexOf(selectedPart);
+                Inventory.updatePart(index, newPart);
                 mainScreen(actionEvent);
+
             }
             else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -324,9 +329,31 @@ public class AddPartController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        radioInHouse.setSelected(true);
-        setRadioInHouse(new ActionEvent());
-        partId = Inventory.getAllParts().size();
-        fieldId.setText("Auto-Gen: " + partId);
+        selectedPart = MainFormController.getSelectedPart();
+        System.out.println(selectedPart.getName());
+        if(selectedPart instanceof Outsourced){
+            radioOutsourced.setSelected(true);
+            isOutsourced = true;
+            labelSpecial.setLayoutX(-8.0);
+            labelSpecial.setText("Company Name");
+            radioInHouse.setSelected(false);
+            fieldSpecial.setText(((Outsourced) selectedPart).getCompanyName());
+        }
+        if(selectedPart instanceof InHouse){
+            radioInHouse.setSelected(true);
+            isOutsourced = false;
+            labelSpecial.setLayoutX(14.0);
+            labelSpecial.setText("Machine ID");
+            radioOutsourced.setSelected(false);
+            fieldSpecial.setText(Integer.toString(((InHouse) selectedPart).getMachineId()));
+        }
+
+        partId = selectedPart.getId();
+        fieldName.setText(selectedPart.getName());
+        fieldStock.setText(Integer.toString(selectedPart.getStock()));
+        fieldPrice.setText(Double.toString(selectedPart.getPrice()));
+        fieldMin.setText(Integer.toString(selectedPart.getMin()));
+        fieldMax.setText(Integer.toString(selectedPart.getMax()));
+        fieldId.setText(Integer.toString(partId));
     }
 }

@@ -54,10 +54,17 @@ public class MainFormController implements Initializable{
     @FXML
     private TextField fieldSearchProduct;
 
+    static private Part selectedPart;
+
+
+    public static Part getSelectedPart() {
+        return selectedPart;
+    }
+
     @FXML
     private void deletePart(ActionEvent actionEvent){
-        Part deletingPart = tablePart.getSelectionModel().getSelectedItem();
-        if (deletingPart == null){
+        selectedPart = tablePart.getSelectionModel().getSelectedItem();
+        if (selectedPart == null){
             Alert alert = new Alert((Alert.AlertType.WARNING));
             alert.initModality(Modality.NONE);
             alert.setTitle("Warning");
@@ -72,7 +79,8 @@ public class MainFormController implements Initializable{
             alert.setContentText("Are you sure you want to delete the part?");
             Optional<ButtonType> result = alert.showAndWait();
             if(result.get() == ButtonType.OK) {
-                Inventory.deletePart(deletingPart);
+                Inventory.deletePart(selectedPart);
+                selectedPart = null;
             }else {
                 System.out.println("Part was not deleted");
             }
@@ -139,8 +147,19 @@ public class MainFormController implements Initializable{
     }
     @FXML
     public void modifyPart(ActionEvent actionEvent) throws IOException {
-        openPage(actionEvent, "ModifyPart.fxml");
+        selectedPart = tablePart.getSelectionModel().getSelectedItem();
+        if (selectedPart == null){
+            Alert alert = new Alert((Alert.AlertType.WARNING));
+            alert.initModality(Modality.NONE);
+            alert.setTitle("Warning");
+            alert.setHeaderText("No Part Selected");
+            alert.setContentText("You must select a part.");
+            alert.show();
+        } else{
+            openPage(actionEvent, "ModifyPart.fxml");
+        }
     }
+
     @FXML
     public void addProduct(ActionEvent actionEvent) throws IOException {
         openPage(actionEvent, "AddProduct.fxml");
@@ -167,6 +186,7 @@ public class MainFormController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
+        selectedPart = null;
         mapTables();
         updateTableViews();
 
