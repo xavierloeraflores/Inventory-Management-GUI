@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
  * which may or may not have associated parts
  * @author xavierloeraflores
  */
+@SuppressWarnings("serial")
 public class Product {
     /**
      * The [observableArrayList] of parts associated with this product.
