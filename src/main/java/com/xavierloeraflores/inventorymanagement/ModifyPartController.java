@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -139,28 +140,28 @@ public class ModifyPartController implements Initializable {
         boolean validated = true;
         errorMessage = "";
 
-        if(name == ""){
+        if(Objects.equals(name, "")){
             System.out.println("Bruh");
             validated = false;
             errorMessage=errorMessage.concat("\nName field can not be empty.");
         }
-        if(priceString==""){
+        if(Objects.equals(priceString, "")){
             validated = false;
             errorMessage=errorMessage.concat("\n Price field can not be empty.");
         }
-        if(stockString==""){
+        if(Objects.equals(stockString, "")){
             validated = false;
             errorMessage=errorMessage.concat("\n Stock field can not be empty.");
         }
-        if(minString==""){
+        if(Objects.equals(minString, "")){
             validated = false;
             errorMessage=errorMessage.concat("\n Min field can not be empty.");
         }
-        if(maxString==""){
+        if(Objects.equals(maxString, "")){
             validated = false;
             errorMessage=errorMessage.concat("\n Max field can not be empty.");
         }
-        if(special==""){
+        if(Objects.equals(special, "")){
             validated = false;
             errorMessage=errorMessage.concat("\n Company name or machine Id can be empty.");
         }
@@ -237,7 +238,7 @@ public class ModifyPartController implements Initializable {
             validated = false;
             errorMessage=errorMessage.concat("\n Price must be a positive number.");
         }
-        if(name == ""){
+        if(Objects.equals(name, "")){
             validated = false;
             errorMessage=errorMessage.concat("\n Name field must not be empty.");
         }
