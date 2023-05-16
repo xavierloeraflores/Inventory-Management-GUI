@@ -1,13 +1,14 @@
 package com.xavierloeraflores.inventorymanagement;
-/**
- * Main class which starts the application
- * @author xavierloeraflores
- */
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
+
+/**
+ * Main class which starts the application
+ * @author xavierloeraflores
+ */
 public class Main extends Application{
     /**
      * This functions adds sample data to the application so that it can be populated with data.
