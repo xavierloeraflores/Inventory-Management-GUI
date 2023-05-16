@@ -111,6 +111,11 @@ public class AddPartController implements Initializable {
         labelSpecial.setText("Company Name");
         radioInHouse.setSelected(false);
     }
+    /**
+     * Returns the user back to the main screen.
+     * @param actionEvent JavaFX action event
+     * @throws IOException
+     */
     private void mainScreen(ActionEvent actionEvent) throws IOException{
         Parent mainFXML = FXMLLoader.load(getClass().getResource("Main.fxml"));
         Scene mainScene = new Scene(mainFXML);
@@ -138,7 +143,6 @@ public class AddPartController implements Initializable {
         errorMessage = "";
         
         if(Objects.equals(name, "")){
-            System.out.println("Bruh");
             validated = false;
             errorMessage=errorMessage.concat("\nName field can not be empty.");
         }
@@ -302,7 +306,7 @@ public class AddPartController implements Initializable {
     /**
      * Handles the canceling functionality when a user presses the cancel button.
      * It will return the user the Main screen if the user confirms cancellation
-     * @param actionEvent
+     * @param actionEvent JavaFX action event
      * @throws IOException
      */
     @FXML
