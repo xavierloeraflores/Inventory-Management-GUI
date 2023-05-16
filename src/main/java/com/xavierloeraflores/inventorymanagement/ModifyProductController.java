@@ -331,7 +331,6 @@ public class ModifyProductController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.get() == ButtonType.OK) {mainScreen(actionEvent);}
-        else {System.out.println("Add Product Cancel has been denied.");}
     }
 
     /**
@@ -403,6 +402,7 @@ public class ModifyProductController implements Initializable {
      * It will add the associated part if the user has selected a part
      * @param actionEvent JavaFX action event
      * @throws IOException
+     * FUTURE ENHANCEMENT : Adds checks to prevent adding duplicate parts to associated parts.
      */
     @FXML
     private void handleAdd(ActionEvent actionEvent) throws IOException {

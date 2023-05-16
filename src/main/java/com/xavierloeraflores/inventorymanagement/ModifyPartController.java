@@ -324,7 +324,6 @@ public class ModifyPartController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.get() == ButtonType.OK) {mainScreen(actionEvent);}
-        else {System.out.println("Add Part Cancel has been denied.");}
     }
 
     /**

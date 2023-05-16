@@ -325,7 +325,6 @@ public class AddProductController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.get() == ButtonType.OK) {mainScreen(actionEvent);}
-        else {System.out.println("Add Product Cancel has been denied.");}
     }
 
     /**

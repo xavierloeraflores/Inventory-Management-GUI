@@ -1,6 +1,6 @@
 package com.xavierloeraflores.inventorymanagement;
 /**
- *
+ * An abstract class representing parts
  * @author xavierloeraflores
  */
 

@@ -6,7 +6,6 @@ import javafx.collections.FXCollections;
  * which contains all parts and products.
  * @author xavierloeraflores
  */
-@SuppressWarnings("serial")
 public class Inventory {
     /**
      * The [observableArrayList] of parts in the inventory.

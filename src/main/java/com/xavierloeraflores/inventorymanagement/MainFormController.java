@@ -137,6 +137,7 @@ public class MainFormController implements Initializable{
      * It will delete the part if the user confirms deletion
      * @param actionEvent JavaFX action event
      * @throws IOException
+     * FUTURE ENHANCEMENT : Automatically remove references to this part from all Product associated parts
      */
     @FXML
     private void deletePart(ActionEvent actionEvent){
@@ -158,8 +159,6 @@ public class MainFormController implements Initializable{
             if(result.get() == ButtonType.OK) {
                 Inventory.deletePart(selectedPart);
                 selectedPart = null;
-            }else {
-                System.out.println("Part was not deleted");
             }
         }
     }
