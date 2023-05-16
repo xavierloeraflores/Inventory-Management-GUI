@@ -5,7 +5,6 @@ package com.xavierloeraflores.inventorymanagement;
  */
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.PerspectiveCamera;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
@@ -49,7 +48,6 @@ public class Main extends Application{
     public static void main(String[] args){
         System.out.println("Inventory Management Application");
         sampleData();
-
         launch(args);
     }
 }

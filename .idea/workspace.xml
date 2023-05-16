@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="896eda89-1411-4643-8a0b-610b564f1abe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xavierloeraflores/inventorymanagement/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xavierloeraflores/inventorymanagement/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xavierloeraflores/inventorymanagement/MainFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xavierloeraflores/inventorymanagement/MainFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/xavierloeraflores/inventorymanagement/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/xavierloeraflores/inventorymanagement/Main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/xavierloeraflores/inventorymanagement/ModifyProduct.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/xavierloeraflores/inventorymanagement/ModifyProduct.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
