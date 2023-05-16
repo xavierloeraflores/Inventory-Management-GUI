@@ -1,6 +1,6 @@
 package com.xavierloeraflores.inventorymanagement;
 /**
- *
+ * Main class which starts the application
  * @author xavierloeraflores
  */
 import javafx.application.Application;
@@ -9,6 +9,9 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 public class Main extends Application{
+    /**
+     * This functions adds sample data to the application so that it can be populated with data.
+     */
     public static void  sampleData(){
         //Parts
         Part screen = new Outsourced(0, "Screen", 100.0, 20, 1, 20, "LG");
@@ -38,6 +41,9 @@ public class Main extends Application{
         Inventory.addProduct(mouse);
 
     }
+    /**
+     * Displays the Main.FXML screen to start the application
+     */
     public void start(Stage stage) throws Exception{
         Parent mainFXML = FXMLLoader.load(getClass().getResource("Main.fxml"));
         Scene mainScene = new Scene(mainFXML);
@@ -45,6 +51,10 @@ public class Main extends Application{
         stage.setScene(mainScene);
         stage.show();
     }
+    /**
+     * Main function of the main class which starts the application.
+     * It can also populate the inventory with data by calling the sampleData() function.
+     */
     public static void main(String[] args){
         System.out.println("Inventory Management Application");
         sampleData();
