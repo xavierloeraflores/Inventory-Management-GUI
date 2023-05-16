@@ -55,10 +55,15 @@ public class MainFormController implements Initializable{
     private TextField fieldSearchProduct;
 
     static private Part selectedPart;
+    static private Product selectedProduct;
 
 
     public static Part getSelectedPart() {
         return selectedPart;
+    }
+
+    public static Product getSelectedProduct() {
+        return selectedProduct;
     }
 
     @FXML
@@ -159,6 +164,74 @@ public class MainFormController implements Initializable{
             openPage(actionEvent, "ModifyPart.fxml");
         }
     }
+    /**
+     * Handles the search part functionality when the user enters a search query.
+     * It will populate the table with the search results or bring up a dialog box if no searches found
+     * @param actionEvent JavaFX action event
+     * @throws IOException
+     */
+    @FXML
+    private void handleSearchPart(ActionEvent actionEvent) throws IOException{
+        String search = fieldSearchPart.getText();
+        ObservableList<Part> searchResults = FXCollections.observableArrayList();
+        int partId = -1;
+        Boolean isInt = true;
+
+        try{partId = Integer.parseInt(search);}
+        catch (NumberFormatException e){isInt = false;}
+
+        if(isInt){
+            Part foundPart = Inventory.lookupPart(partId);
+            searchResults.add(foundPart);
+        }
+
+        ObservableList<Part> foundParts = Inventory.lookupPart(search);
+        for(int i =0; i<foundParts.size(); i++){searchResults.add(foundParts.get(i));}
+
+        if(searchResults.size()==0){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Not Found");
+            alert.setHeaderText("No Matching Results");
+            alert.setContentText("No parts found matching the search query");
+            alert.showAndWait();
+        }else{
+            tablePart.setItems(searchResults);
+        }
+    }
+    /**
+     * Handles the search part functionality when the user enters a search query.
+     * It will populate the table with the search results or bring up a dialog box if no searches found
+     * @param actionEvent JavaFX action event
+     * @throws IOException
+     */
+    @FXML
+    private void handleSearchProduct(ActionEvent actionEvent) throws IOException{
+        String search = fieldSearchProduct.getText();
+        ObservableList<Product> searchResults = FXCollections.observableArrayList();
+        int productId = -1;
+        Boolean isInt = true;
+
+        try{productId = Integer.parseInt(search);}
+        catch (NumberFormatException e){isInt = false;}
+
+        if(isInt){
+            Product foundProduct = Inventory.lookupProduct(productId);
+            searchResults.add(foundProduct);
+        }
+
+        ObservableList<Product> foundProducts = Inventory.lookupProduct(search);
+        for(int i =0; i<foundProducts.size(); i++){searchResults.add(foundProducts.get(i));}
+
+        if(searchResults.size()==0){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Not Found");
+            alert.setHeaderText("No Matching Results");
+            alert.setContentText("No products found matching the search query");
+            alert.showAndWait();
+        }else{
+            tableProduct.setItems(searchResults);
+        }
+    }
 
     @FXML
     public void addProduct(ActionEvent actionEvent) throws IOException {
@@ -166,13 +239,23 @@ public class MainFormController implements Initializable{
     }
     @FXML
     public void modifyProduct(ActionEvent actionEvent) throws IOException {
-        openPage(actionEvent, "ModifyProduct.fxml");
+        selectedProduct = tableProduct.getSelectionModel().getSelectedItem();
+        if (selectedProduct == null){
+            Alert alert = new Alert((Alert.AlertType.WARNING));
+            alert.initModality(Modality.NONE);
+            alert.setTitle("Warning");
+            alert.setHeaderText("No Product Selected");
+            alert.setContentText("You must select a product.");
+            alert.show();
+        } else{
+            openPage(actionEvent, "ModifyProduct.fxml");
+        }
     }
 
-    public void updateTableViews(){
-        tablePart.setItems(Inventory.getAllParts());
-        tableProduct.setItems(Inventory.getAllProducts());
-    }
+    /**
+     * Handles setting up all the tables and populates them with the data.
+     * This function also maps all the columns with properties from the Part and Product class.
+     */
     public void mapTables(){
         columnPartId.setCellValueFactory(new PropertyValueFactory<>("id"));
         columnPartName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -182,13 +265,17 @@ public class MainFormController implements Initializable{
         columnProductName.setCellValueFactory(new PropertyValueFactory<>("name"));
         columnProductStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
         columnProductPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        tablePart.setItems(Inventory.getAllParts());
+        tableProduct.setItems(Inventory.getAllProducts());
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         selectedPart = null;
+        selectedProduct = null;
+
         mapTables();
-        updateTableViews();
 
     }
 }
