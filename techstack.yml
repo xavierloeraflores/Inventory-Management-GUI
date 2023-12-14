@@ -1,11 +1,11 @@
 repo_name: xavierloeraflores/Inventory-Management-GUI
-report_id: 9ac0294b8d43be9c2f6a683fc29c5027
+report_id: 81a7bede13635b16c8185886b321f2ca
 repo_type: Public
-timestamp: '2023-11-16T13:04:27+00:00'
+timestamp: '2023-12-14T13:12:59+00:00'
 requested_by: xavierloeraflores
 provider: github
 branch: main
-detected_tools_count: 5
+detected_tools_count: 7
 tools:
 - name: Java
   description: A concurrent, class-based, object-oriented, language specifically designed
@@ -59,3 +59,29 @@ tools:
   detection_source: docs/allclasses-index.html
   last_updated_by: Xavier Loera Flores
   last_updated_on: 2023-05-13 19:43:34.000000000 Z
+- name: org.junit.jupiter:junit-jupiter-api
+  description: Module "junit-jupiter-api" of JUnit 5
+  version: 5.9.2
+  license: EPL-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/xavierloeraflores/Inventory-Management-GUI/blob/main/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Xavier Loera Flores
+  last_updated_on: 2023-05-09 15:20:53.000000000 Z
+- name: org.junit.jupiter:junit-jupiter-engine
+  description: Module "junit-jupiter-engine" of JUnit 5
+  version: 5.9.2
+  license: EPL-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/xavierloeraflores/Inventory-Management-GUI/blob/main/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Xavier Loera Flores
+  last_updated_on: 2023-05-09 15:20:53.000000000 Z
