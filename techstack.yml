@@ -1,11 +1,12 @@
 repo_name: xavierloeraflores/Inventory-Management-GUI
 report_id: 9ac0294b8d43be9c2f6a683fc29c5027
+version: 0.1
 repo_type: Public
-timestamp: '2023-11-16T13:04:27+00:00'
+timestamp: '2024-01-05T08:38:42+00:00'
 requested_by: xavierloeraflores
 provider: github
 branch: main
-detected_tools_count: 5
+detected_tools_count: 7
 tools:
 - name: Java
   description: A concurrent, class-based, object-oriented, language specifically designed
@@ -16,6 +17,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/995/K85ZWV2F.png
+  detection_source_url: https://github.com/xavierloeraflores/Inventory-Management-GUI
   detection_source: Repo Metadata
 - name: JavaScript
   description: Lightweight, interpreted, object-oriented language with first-class
@@ -26,6 +28,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/xavierloeraflores/Inventory-Management-GUI/blob/main/docs/script-dir/jquery-3.6.1.min.js
   detection_source: docs/script-dir/jquery-3.6.1.min.js
   last_updated_by: Xavier Loera Flores
   last_updated_on: 2023-05-13 19:43:34.000000000 Z
@@ -37,6 +40,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/xavierloeraflores/Inventory-Management-GUI
   detection_source: Repo Metadata
 - name: JUnit
   description: A programmer-oriented testing framework for Java
@@ -47,6 +51,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Testing Frameworks
   image_url: https://img.stackshare.io/service/2020/874086.png
+  detection_source_url: https://github.com/xavierloeraflores/Inventory-Management-GUI/blob/main/pom.xml
   detection_source: pom.xml
   last_updated_by: Xavier Loera Flores
   last_updated_on: 2023-05-09 15:20:53.000000000 Z
@@ -56,6 +61,33 @@ tools:
   open_source: false
   hosted_saas: false
   image_url: https://img.stackshare.io/service/2270/no-img-open-source.png
+  detection_source_url: https://github.com/xavierloeraflores/Inventory-Management-GUI/blob/main/docs/allclasses-index.html
   detection_source: docs/allclasses-index.html
   last_updated_by: Xavier Loera Flores
   last_updated_on: 2023-05-13 19:43:34.000000000 Z
+- name: org.junit.jupiter:junit-jupiter-api
+  description: Module "junit-jupiter-api" of JUnit 5
+  version: 5.9.2
+  license: EPL-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/xavierloeraflores/Inventory-Management-GUI/blob/main/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Xavier Loera Flores
+  last_updated_on: 2023-05-09 15:20:53.000000000 Z
+- name: org.junit.jupiter:junit-jupiter-engine
+  description: Module "junit-jupiter-engine" of JUnit 5
+  version: 5.9.2
+  license: EPL-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/xavierloeraflores/Inventory-Management-GUI/blob/main/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Xavier Loera Flores
+  last_updated_on: 2023-05-09 15:20:53.000000000 Z
